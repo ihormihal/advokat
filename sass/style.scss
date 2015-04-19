@@ -1,0 +1,199 @@
+@import "compass/css3/transition";
+@import "compass/css3/transform";
+@import "compass/css3/box-shadow";
+@import "compass/css3/border-radius";
+
+$grey: #807a7c;
+$white: #fefefe;
+$light: #e8e1d7;
+$dark: #252123;
+
+$bgmedium: #676263;
+$bggrey: #7b7676;
+
+$text: #afabab;
+
+
+$color_facebook : #004b99;
+$color_vk       : #0069b3;
+$color_google   : #df4104;
+$color_twitter  : #60a9de;
+$color_youtube  : #b6252c;
+
+
+/**** GENERAL ****/
+html {position: relative; min-height: 100%; min-width: 320px; background-color: transparent;}
+body {background: url('../img/bg-grey.gif'); color: $white; overflow-x: hidden;}
+p {color: $text; font-size: 12px; line-height: 12px;}
+.clearboth {clear: both; float: none; width: 100%;}
+.float-right {float: right;}
+.image img {max-width: 100%;}
+.full-image img {width: 100%;}
+.upper {text-transform: uppercase;}
+.ul {display: block; list-style: none; margin: 0; padding: 0;}
+
+textarea {resize: vertical;}
+.form-control, .btn {
+	display: inline-block; vertical-align: bottom;
+	background-color: $bggrey; border: none; box-sizing: border-box; 
+	padding: 7px 10px; margin-bottom: 7px;
+	outline: none;
+	font-size: 10px;
+	border: 1px solid $bggrey;
+	@include transition(background-color 0.25s ease);
+	&:focus {background-color: $bgmedium; border-color: $light;}
+	&.full {width: 100%;}
+}
+.btn-default {
+	text-transform: uppercase;
+	&:hover {
+		border-color: $light;
+		background-color: $bgmedium;
+	}
+}
+.btn-large {padding: 15px 25px;}
+
+/**** PAGE ****/
+.header-wrapper {
+	background: url('../img/bg-dark.gif');
+	.logo-wrapper {text-align: center;}
+	.navbar {
+		background: url('../img/bg-medium-light.gif') repeat-x;
+		text-align: center;
+		.nav {position: relative;}
+		ul {
+			display: inline-block;
+			vertical-align: bottom;
+		}
+		li {
+			display: block;
+			float: left;
+			a {
+				display: block; 
+				color: #fefefe;
+				text-shadow: 1px 1px 1px #000;
+				text-align: center; text-transform: uppercase; text-decoration: none; font-size: 12px;
+				height: 80px; line-height: 78px; padding: 0 30px;
+				background: #989395 url('../img/bg-menu.png') repeat-x;
+				background-position: 0 -80px;
+				border-left: 1px solid #989395;
+
+				@include transition(background-position 0.25s ease, border-color 0.25s ease);
+			}
+			&:first-child {
+				a {border: none;}
+			}
+			&.active a, &:hover a {
+				background-position: 0 0px;
+				border-color: #222222;
+			}
+		}
+		.navicon {
+			margin: 10px;
+			font-size: 36px; text-align: left;
+			cursor: pointer;
+			display: none;
+			a {
+				color: $white;
+			}
+		}
+	}
+}
+
+.content {
+	padding: 60px 0;
+	.box {
+		background-color: $bgmedium; padding: 15px 30px; margin-bottom: 30px;
+		.title {font-size: 24px; font-weight: 600; text-shadow: 1px 1px 2px rgba(60, 60, 60, 1); text-transform: uppercase; margin: 5px 0 15px 0;}
+	}
+	.contact {
+		.gmap {
+			width: 100%; height: 200px; margin-bottom: 15px; background-color: $bggrey;
+			border: 5px solid $white;
+		}
+		.label {
+			width: 80px;
+			margin-right: 15px;
+			display: inline-block;
+		}
+	}
+}
+
+.social {
+	display: inline-block;
+	margin: 0; padding: 0;
+	li {
+		display: inline-block;
+		a {
+			display: block;
+			width: 54px;
+			height: 54px;
+			line-height: 54px;
+			@include border-radius(50%);
+			background-color: $bggrey;
+			color: $white;
+			display: inline-block; text-align: center;
+			height: 36px; width: 36px; line-height: 36px;
+			font-size: 18px;
+			@include transition(background-color 0.25s);
+		}
+		&:hover{
+			a {
+				background-color: $bgmedium;
+			}
+		}
+	}
+}
+
+footer {position: absolute; bottom: 0; left: 0; right: 0;}
+.footer-wrapper {
+	background: url('../img/bg-dark.gif');
+	padding: 60px 0 45px 0;
+	.footer-widget {
+		margin-bottom: 15px;
+		.title {text-transform: uppercase; margin: 0; line-height: 36px; font-size: 24px; font-weight: 600;}
+	}
+	.social {float: right;}
+}
+
+/**** RESPONSE ****/
+@media screen and (min-width: 600px){
+}
+
+@media screen and (max-width: 992px){
+	.header-wrapper {
+		.navbar {
+			li {
+				a {padding: 0 20px;}
+			}
+		}
+	}
+	.footer-wrapper {
+		.footer-widget {text-align: center;}
+		.social {float: none; width: 100%;}
+	}
+}
+@media screen and (max-width: 767px){
+
+}
+@media screen and (max-width: 600px){
+	.header-wrapper .navbar {
+		.navicon {display: block;}
+		ul {
+			display: none; position: absolute; z-index: 100; width: 100%; background-color: #fff;
+			li {
+				display: block; width: 100%;
+				a {padding: 0 15px; height: 38px; line-height: 38px; background: $bggrey; border: none;}
+				&.active a, &:hover a {
+					background: #222222;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 480px){
+
+}
+@media screen and (max-width: 400px){
+
+}
