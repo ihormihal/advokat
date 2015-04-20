@@ -42,20 +42,48 @@ $(function(){
         }
     });
 
-    $('.brands-carousel').owlCarousel({
+    var mainCarousel = $('.main-carousel').owlCarousel({
         itemsCustom : [
-            [0, 2],
-            [450, 3],
-            [600, 4],
-            [700, 5],
-            [1000, 6],
-            [1200, 6],
-            [1400, 8],
-            [1600, 10]
+            [450, 1],
+            [600, 2],
+            [700, 3],
+            [1000, 4],
+            [1400, 5]
         ],
         navigation : false,
         pagination: false,
-        autoPlay: 2000
+        autoPlay: 2000,
+        navigationText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
+    });
+    // Custom Navigation Events
+    $('.main-carousel-nav .next').click(function(){
+        mainCarousel.trigger('owl.next');
+    })
+    $('.main-carousel-nav .prev').click(function(){
+        mainCarousel.trigger('owl.prev');
+    });
+
+    var mainCarouselText = $('.main-carousel-text').owlCarousel({
+        navigation : false,
+        pagination: true,
+        slideSpeed : 300,
+        paginationSpeed : 400,
+        singleItem:true
+    });
+
+    var partnersCarousel = $('.partners-carousel').owlCarousel({
+        itemsCustom : [
+            [450, 2],
+            [600, 3],
+            [800, 4],
+            [1000, 5],
+            [1400, 6],
+            [1800, 8]
+        ],
+        navigation : false,
+        pagination: true,
+        autoPlay: 2000,
+        navigationText: ['<i class="fa fa-angle-left"></i>','<i class="fa fa-angle-right"></i>'],
     });
 
     $('#nav-button').click(function(){
@@ -64,6 +92,30 @@ $(function(){
         }else{
             $('#nav-main').slideDown(500);
         }
+    });
+
+    $('.gmap').each(function(){
+      var container = this;
+      var latlng = new google.maps.LatLng(
+        parseFloat($(container).data('lat')),
+        parseFloat($(container).data('lng'))
+      );
+      var mapOptions = {
+        zoom: parseInt($(container).data('zoom')),
+        center: latlng,
+        zoomControl: true,
+        mapTypeControl: false,
+        streetViewControl: false,
+        scrollwheel: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(container, mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: latlng,
+        map: map,
+        icon: $(container).data('marker')
+      });
     });
 
 
