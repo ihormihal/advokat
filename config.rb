@@ -2,11 +2,11 @@ require 'compass/import-once/activate'
 # Require any additional compass plugins here.
 
 # Set this to the root of your project when deployed:
-http_path = "/"
-css_dir = "design/css"
+http_path = "../www/"
+css_dir = "../www/design/css"
 sass_dir = "sass"
-images_dir = "design/img"
-javascripts_dir = "design/js"
+images_dir = "../www/design/img"
+javascripts_dir = "../www/design/js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
@@ -15,7 +15,7 @@ javascripts_dir = "design/js"
 # relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
-# line_comments = false
+line_comments = false
 
 
 # If you prefer the indented syntax, you might want to regenerate this
